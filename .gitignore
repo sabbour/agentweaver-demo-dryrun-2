@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Build output
+dist/
+build/
+.next/
+out/
+target/
+bin/
+obj/
+
+# Logs & environment
+*.log
+.env
+.env.*
+
+# OS cruft
+.DS_Store
+Thumbs.db
