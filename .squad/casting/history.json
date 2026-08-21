@@ -1,0 +1,47 @@
+{
+  "snapshots": [
+    {
+      "snapshotId": "c70420b1eb6841e3adc0d3744f0757da",
+      "universe": "Dune",
+      "mode": "Manual",
+      "intent": "New",
+      "members": [
+        "Paul",
+        "Jessica",
+        "Duncan",
+        "Gurney",
+        "Stilgar",
+        "Chani",
+        "Alia",
+        "Leto",
+        "Vladimir",
+        "Piter",
+        "Feyd",
+        "Thufir",
+        "Scribe",
+        "Ralph",
+        "Rai",
+        "Coordinator"
+      ],
+      "addedMembers": [
+        "Paul",
+        "Jessica",
+        "Duncan",
+        "Gurney",
+        "Stilgar",
+        "Chani",
+        "Alia",
+        "Leto",
+        "Vladimir",
+        "Piter",
+        "Feyd",
+        "Thufir"
+      ],
+      "retiredMembers": [],
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00"
+    }
+  ],
+  "universeUsageHistory": [
+    "Dune"
+  ]
+}

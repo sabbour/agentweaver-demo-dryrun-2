@@ -1,0 +1,148 @@
+{
+  "agents": {
+    "paul": {
+      "name": "Paul",
+      "persistentName": "paul",
+      "universe": "Dune",
+      "defaultModel": "claude-opus-4.8",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/paul/charter.md"
+    },
+    "jessica": {
+      "name": "Jessica",
+      "persistentName": "jessica",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/jessica/charter.md"
+    },
+    "duncan": {
+      "name": "Duncan",
+      "persistentName": "duncan",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/duncan/charter.md"
+    },
+    "gurney": {
+      "name": "Gurney",
+      "persistentName": "gurney",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/gurney/charter.md"
+    },
+    "stilgar": {
+      "name": "Stilgar",
+      "persistentName": "stilgar",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/stilgar/charter.md"
+    },
+    "chani": {
+      "name": "Chani",
+      "persistentName": "chani",
+      "universe": "Dune",
+      "defaultModel": "claude-opus-4.8",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/chani/charter.md"
+    },
+    "alia": {
+      "name": "Alia",
+      "persistentName": "alia",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/alia/charter.md"
+    },
+    "leto": {
+      "name": "Leto",
+      "persistentName": "leto",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/leto/charter.md"
+    },
+    "vladimir": {
+      "name": "Vladimir",
+      "persistentName": "vladimir",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/vladimir/charter.md"
+    },
+    "piter": {
+      "name": "Piter",
+      "persistentName": "piter",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/piter/charter.md"
+    },
+    "feyd": {
+      "name": "Feyd",
+      "persistentName": "feyd",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/feyd/charter.md"
+    },
+    "thufir": {
+      "name": "Thufir",
+      "persistentName": "thufir",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-5",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/thufir/charter.md"
+    },
+    "scribe": {
+      "name": "Scribe",
+      "persistentName": "scribe",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-4.6",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/scribe/charter.md"
+    },
+    "ralph": {
+      "name": "Ralph",
+      "persistentName": "ralph",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-4.6",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/ralph/charter.md"
+    },
+    "rai": {
+      "name": "Rai",
+      "persistentName": "rai",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-4.6",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/rai/charter.md"
+    },
+    "coordinator": {
+      "name": "Coordinator",
+      "persistentName": "coordinator",
+      "universe": "Dune",
+      "defaultModel": "claude-sonnet-4.6",
+      "status": "Active",
+      "createdAt": "2026-08-21T12:59:17.8336199+00:00",
+      "charterPath": ".squad/agents/coordinator/charter.md"
+    }
+  }
+}
