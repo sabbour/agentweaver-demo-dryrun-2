@@ -1,0 +1,133 @@
+# Generic Workflow (Feature 010 — behavior-preserving conversion of
+# RunWorkflowFactory.BuildWorkflow). Generated into each project at instantiation time and
+# editable afterwards. The canonical generator lives in code (DefaultWorkflowTemplate); this
+# file is a materialized copy.
+#
+# It reproduces today's hardcoded run pipeline as a declarative definition: an agent turn
+# produces a change, RAI reviews it (pass through / request a revision up to the iteration cap /
+# fail safe on a content-safety RED), a human-review gate approves / requests changes /
+# declines, an approved change merges, the merged branch is published/reused as a pull request,
+# and the scribe records the outcome. The canonical stage stream (agent, rai, review, merge,
+# pull-request publication, scribe) and the same logical nodes, order, and decisions are
+# preserved. Plumbing/adapter executors are hidden and not modeled here.
+
+id: default
+name: Generic Workflow
+description: Behavior-preserving conversion of the built-in run pipeline (agent, rai, review, merge, pull-request publication, scribe).
+
+start: agent
+
+nodes:
+  - id: agent
+    type: prompt
+    label: Agent
+    role: agent
+    kind: live
+    prompt: Perform the requested task as an agent turn and produce a change.
+
+  - id: rai
+    type: check
+    label: Rai
+    role: review
+    kind: gate
+    gate_kind: rai
+    branches:
+      - revise
+      - safety-failed
+      - no-changes
+      - review
+
+  - id: review
+    type: check
+    label: Review
+    role: review
+    kind: gate
+    gate_kind: human-review
+    branches:
+      - approved
+      - request-changes
+      - declined
+
+  - id: merge
+    type: merge
+    label: Merge
+    role: merge
+    kind: action
+
+  - id: push-pr
+    type: open_pull_request
+    label: Push PR
+    role: action
+    kind: live
+    title: "Agentweaver: {outcome_summary}"
+    body: "Automated changes produced by Agentweaver run `{run_id}` on branch `{worktree_branch}`.\n\n{outcome_summary}"
+    base: main
+    head: "{worktree_branch}"
+
+  - id: scribe
+    type: scribe
+    label: Scribe
+    role: scribe
+    kind: agent
+
+  - id: terminal-safety-failed
+    type: terminal
+    label: Safety failed
+    role: plumbing
+    kind: terminal
+
+  - id: terminal-declined
+    type: terminal
+    label: Declined
+    role: plumbing
+    kind: terminal
+
+  - id: done
+    type: terminal
+    label: Done
+    role: plumbing
+    kind: terminal
+
+edges:
+  # Agent turn flows into the RAI gate (unconditional).
+  - from: agent
+    to: rai
+
+  # RAI verdict routing.
+  - from: rai          # revision requested under the iteration cap: loop back to the agent.
+    to: agent
+    when: revise
+  - from: rai          # content-safety RED on an empty diff: fail safe, never reaching review.
+    to: terminal-safety-failed
+    when: safety-failed
+  - from: rai          # no changes produced: skip review/merge straight to the scribe no-op path.
+    to: scribe
+    when: no-changes
+  - from: rai          # otherwise (OK / RED with a diff / revise-at-cap): human review gate.
+    to: review
+    when: review
+
+  # Human-review gate routing.
+  - from: review
+    to: merge
+    when: approved
+  - from: review       # request changes: loop back to the agent with feedback (no cap).
+    to: agent
+    when: request-changes
+  - from: review
+    to: terminal-declined
+    when: declined
+
+  # Merge outcomes.
+  - from: merge        # merged (succeeded or failed terminally): publish/reuse the pull request.
+    to: push-pr
+    when: merged
+  - from: merge        # blocked: re-enter the review gate via HITL so the run stays alive.
+    to: review
+    when: blocked
+
+  # Publish/reuse the PR, then record the outcome and terminate.
+  - from: push-pr
+    to: scribe
+  - from: scribe
+    to: done
